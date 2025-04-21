@@ -30,7 +30,8 @@
       "material": "Oxford Cotton",
       "category": "Nickelodeon"
     },
-    "created_at": "2024-02-28T15:30:00Z"
+    "created_at": "2024-02-28T15:30:00Z",
+    "tags": ["fabric", "japan", "nickelodeon", "yellow"]
   },
   {
     "id": 2,
@@ -63,7 +64,8 @@
       "material": "Oxford Cotton",
       "category": "Nintendo"
     },
-    "created_at": "2025-03-12T00:00:00Z"
+    "created_at": "2025-03-12T00:00:00Z",
+    "tags": ["fabric", "japan", "kirby", "nintendo"]
   },
   {
     "id": 3,
@@ -114,7 +116,8 @@
       "material": "Oxford Cotton",
       "category": "Sanrio"
     },
-    "created_at": "2024-02-28T15:30:00Z"
+    "created_at": "2024-02-28T15:30:00Z",
+    "tags": ["fabric", "japan", "my melody", "purple", "sanrio"]
   },
   {
     "id": 4,
@@ -147,7 +150,8 @@
       "material": "Oxford Cotton",
       "category": "San-X"
     },
-    "created_at": "2025-03-12T00:00:00Z"
+    "created_at": "2025-03-12T00:00:00Z",
+    "tags": ["fabric", "japan", "san-x", "sumikko"]
   },
   {
     "id": 5,
@@ -180,7 +184,8 @@
       "material": "Oxford Cotton",
       "category": "Universal Pictures"
     },
-    "created_at": "2025-03-13T00:00:00Z"
+    "created_at": "2025-03-13T00:00:00Z",
+    "tags": ["fabric", "japan", "minions", "universal pictures"]
   },
   {
     "id": 6,
@@ -213,7 +218,8 @@
       "material": "Oxford Cotton",
       "category": "Futabasha"
     },
-    "created_at": "2025-03-12T00:00:00Z"
+    "created_at": "2025-03-12T00:00:00Z",
+    "tags": ["crayon", "fabric", "futabasha", "japan", "shinchan"]
   },
   {
     "id": 7,
@@ -253,7 +259,8 @@
       "material": "Oxford Cotton",
       "category": "Peanuts"
     },
-    "created_at": "2025-03-12T00:00:00Z"
+    "created_at": "2025-03-12T00:00:00Z",
+    "tags": ["fabric", "japan", "peanuts", "snoopy"]
   },
   {
     "id": 8,
@@ -279,7 +286,8 @@
       "material": "Oxford Cotton",
       "category": "Disney"
     },
-    "created_at": "2025-03-12T00:00:00Z"
+    "created_at": "2025-03-12T00:00:00Z",
+    "tags": ["disney", "fabric", "japan", "pooh"]
   },
   {
     "id": 9,
@@ -319,7 +327,8 @@
       "material": "Oxford Cotton",
       "category": "Kawaii"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "kawaii"]
   },
   {
     "id": 10,
@@ -359,7 +368,8 @@
       "material": "Oxford Cotton",
       "category": "Kawaii"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "kawaii"]
   },
   {
     "id": 11,
@@ -406,7 +416,8 @@
       "material": "Oxford Cotton",
       "category": "Kawaii"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "kawaii"]
   },
   {
     "id": 12,
@@ -432,7 +443,8 @@
       "material": "Oxford Cotton",
       "category": "Sanrio"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "sanrio"]
   },
   {
     "id": 13,
@@ -465,7 +477,8 @@
       "material": "Oxford Cotton",
       "category": "San-X"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "san-x"]
   },
   {
     "id": 14,
@@ -498,7 +511,8 @@
       "material": "Oxford Cotton",
       "category": "Nintendo"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "nintendo"]
   },
   {
     "id": 15,
@@ -524,7 +538,8 @@
       "material": "Oxford Cotton",
       "category": "Sanrio"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "sanrio"]
   },
   {
     "id": 16,
@@ -557,7 +572,8 @@
       "material": "Oxford Cotton",
       "category": "Nickelodeon"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "nickelodeon"]
   },
   {
     "id": 17,
@@ -583,7 +599,8 @@
       "material": "Oxford Cotton",
       "category": "Disney"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["disney", "fabric", "japan"]
   },
   {
     "id": 18,
@@ -609,7 +626,8 @@
       "material": "Oxford Cotton",
       "category": "San-X"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "san-x"]
   },
   {
     "id": 19,
@@ -642,7 +660,8 @@
       "material": "Oxford Cotton",
       "category": "Nintendo"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "nintendo"]
   },
   {
     "id": 20,
@@ -675,7 +694,8 @@
       "material": "Oxford Cotton",
       "category": "Nintendo"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "nintendo"]
   },
   {
     "id": 21,
@@ -708,7 +728,8 @@
       "material": "Oxford Cotton",
       "category": "Kawaii"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "kawaii"]
   },
   {
     "id": 22,
@@ -734,7 +755,8 @@
       "material": "Oxford Cotton",
       "category": "Kawaii"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "kawaii"]
   },
   {
     "id": 23,
@@ -760,7 +782,8 @@
       "material": "Oxford Cotton",
       "category": "Sanrio"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "sanrio"]
   },
   {
     "id": 24,
@@ -793,7 +816,8 @@
       "material": "Oxford Cotton",
       "category": "Nintendo"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["fabric", "japan", "nintendo"]
   },
   {
     "id": 25,
@@ -819,6 +843,7 @@
       "material": "Oxford Cotton",
       "category": "Universal Pictures"
     },
-    "created_at": "2025-03-26T00:00:00Z"
+    "created_at": "2025-03-26T00:00:00Z",
+    "tags": ["cat", "fabric", "japan", "universal pictures"]
   }
 ]
