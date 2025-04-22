@@ -127,9 +127,9 @@ function Shop() {
         {showCategoryDropdown && (
           <div
             ref={dropdownRef}
-            className="mb-6 w-full rounded border bg-white p-4"
+            className="bg-accent/10 mb-6 w-full rounded p-4"
           >
-            <div className="flex flex-wrap gap-2">
+            <div className="mb-10 flex flex-wrap gap-2">
               {categories
                 .filter((cat) => cat !== 'all')
                 .map((cat) => {
@@ -154,12 +154,32 @@ function Shop() {
                     <button
                       key={cat}
                       onClick={handleToggle}
-                      className={`btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline'}`}
+                      className={`btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline border-white bg-white hover:border-1 hover:border-neutral-900'}`}
                     >
                       {cat}
                     </button>
                   );
                 })}
+            </div>
+            <div className="flex flex-row justify-end gap-2">
+              <button
+                onClick={() => {
+                  const newParams = new URLSearchParams(searchParams);
+                  newParams.delete('category');
+                  newParams.set('page', '1');
+                  setSearchParams(newParams);
+                }}
+                className="btn btn-sm btn-ghost"
+              >
+                Reset
+              </button>
+
+              <button
+                onClick={() => setShowCategoryDropdown(false)}
+                className="btn btn-sm btn-secondary"
+              >
+                Close
+              </button>
             </div>
           </div>
         )}
