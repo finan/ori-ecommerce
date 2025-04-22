@@ -97,141 +97,118 @@ function Shop() {
   return (
     <>
       <section className="container mx-auto py-14">
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-4">
-          {/* Filter */}
-          <div className="md:col-span-1">
-            <div className="rounded-box space-y-2 bg-white p-4">
-              <h3 className="mb-2 text-lg font-semibold">Filter by Category</h3>
-              <ul className="space-y-2">
-                {categories.map((cat) => (
-                  <li key={cat}>
-                    <button
-                      onClick={() => {
-                        setSearchParams((prev) => {
-                          prev.set('category', cat);
-                          prev.set('page', '1');
-                          return prev;
-                        });
-                      }}
-                      className={`btn btn-sm w-full justify-start ${
-                        category === cat ? 'btn-primary' : 'btn-outline'
-                      }`}
-                    >
-                      {cat}
-                    </button>
-                  </li>
-                ))}
-              </ul>
+        <div>
+          <div className="mb-4 flex items-center justify-between">
+            <ul className="flex flex-row gap-2">
+              {categories.map((cat) => (
+                <li key={cat}>
+                  <button
+                    onClick={() => {
+                      setSearchParams((prev) => {
+                        prev.set('category', cat);
+                        prev.set('page', '1');
+                        return prev;
+                      });
+                    }}
+                    className={`btn btn-sm justify-start ${
+                      category === cat ? 'btn-primary' : 'btn-outline'
+                    }`}
+                  >
+                    {cat}
+                  </button>
+                </li>
+              ))}
+            </ul>
+
+            <select
+              value={sort}
+              onChange={(e) =>
+                setSearchParams((prev) => {
+                  prev.set('sort', e.target.value);
+                  prev.set('page', '1'); // reset halaman saat sort berubah
+                  return prev;
+                })
+              }
+              className="select select-ghost select-neutral w-fit"
+            >
+              <option value="newest">Newest</option>
+              <option value="lowest">Lowest Price</option>
+              <option value="highest">Highest Price</option>
+              <option value="sale">On Sale</option>
+            </select>
+          </div>
+
+          <p className="text-neutral mb-8 text-sm">
+            {isMobile
+              ? `Showing ${endIndex} products`
+              : `Showing ${startIndex}–${endIndex} of ${totalProducts} products`}
+          </p>
+
+          {totalProducts === 0 && (
+            <p className="mt-8 text-center text-white">No products found.</p>
+          )}
+
+          <FnnListProducts
+            products={paginatedProducts}
+            className="grid grid-cols-2 gap-6 space-y-10 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-5"
+          />
+
+          {!isMobile && (
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+              {/* Prev, page numbers, Next — seperti sebelumnya */}
               <button
+                disabled={safePage <= 1}
                 onClick={() => {
                   setSearchParams((prev) => {
-                    prev.delete('category'); // hapus filter kategori
-                    prev.set('page', '1'); // reset halaman
+                    prev.set('page', String(safePage - 1));
                     return prev;
                   });
                 }}
-                className="btn btn-xs btn-neutral mt-4"
+                className="btn btn-sm"
               >
-                Reset Filter
+                Prev
+              </button>
+
+              {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+                <button
+                  key={p}
+                  onClick={() => {
+                    setSearchParams((prev) => {
+                      prev.set('page', String(p));
+                      return prev;
+                    });
+                  }}
+                  className={`btn btn-sm ${safePage === p ? 'btn-primary' : 'btn-outline'}`}
+                >
+                  {p}
+                </button>
+              ))}
+
+              <button
+                disabled={safePage >= totalPages}
+                onClick={() => {
+                  setSearchParams((prev) => {
+                    prev.set('page', String(safePage + 1));
+                    return prev;
+                  });
+                }}
+                className="btn btn-sm"
+              >
+                Next
               </button>
             </div>
-          </div>
+          )}
 
-          {/* Produk */}
-          <div className="md:col-span-3">
-            <div className="mb-4 flex justify-end">
-              <select
-                value={sort}
-                onChange={(e) =>
-                  setSearchParams((prev) => {
-                    prev.set('sort', e.target.value);
-                    prev.set('page', '1'); // reset halaman saat sort berubah
-                    return prev;
-                  })
-                }
-                className="select select-neutral"
+          {isMobile && paginatedProducts.length < filteredProducts.length && (
+            <div className="mt-8 flex justify-center">
+              <button
+                onClick={() => setLoadCount((prev) => prev + 1)}
+                className="btn btn-primary"
               >
-                <option value="newest">Newest</option>
-                <option value="lowest">Lowest Price</option>
-                <option value="highest">Highest Price</option>
-                <option value="sale">On Sale</option>
-              </select>
+                Load More
+              </button>
             </div>
-
-            <p className="text-neutral mb-8 text-sm">
-              {isMobile
-                ? `Showing ${endIndex} products`
-                : `Showing ${startIndex}–${endIndex} of ${totalProducts} products`}
-            </p>
-
-            {totalProducts === 0 && (
-              <p className="mt-8 text-center text-white">No products found.</p>
-            )}
-
-            <FnnListProducts
-              products={paginatedProducts}
-              className="grid gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4"
-            />
-
-            {!isMobile && (
-              <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-                {/* Prev, page numbers, Next — seperti sebelumnya */}
-                <button
-                  disabled={safePage <= 1}
-                  onClick={() => {
-                    setSearchParams((prev) => {
-                      prev.set('page', String(safePage - 1));
-                      return prev;
-                    });
-                  }}
-                  className="btn btn-sm"
-                >
-                  Prev
-                </button>
-
-                {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-                  (p) => (
-                    <button
-                      key={p}
-                      onClick={() => {
-                        setSearchParams((prev) => {
-                          prev.set('page', String(p));
-                          return prev;
-                        });
-                      }}
-                      className={`btn btn-sm ${safePage === p ? 'btn-primary' : 'btn-outline'}`}
-                    >
-                      {p}
-                    </button>
-                  ),
-                )}
-
-                <button
-                  disabled={safePage >= totalPages}
-                  onClick={() => {
-                    setSearchParams((prev) => {
-                      prev.set('page', String(safePage + 1));
-                      return prev;
-                    });
-                  }}
-                  className="btn btn-sm"
-                >
-                  Next
-                </button>
-              </div>
-            )}
-
-            {isMobile && paginatedProducts.length < filteredProducts.length && (
-              <div className="mt-8 flex justify-center">
-                <button
-                  onClick={() => setLoadCount((prev) => prev + 1)}
-                  className="btn btn-primary"
-                >
-                  Load More
-                </button>
-              </div>
-            )}
-          </div>
+          )}
         </div>
       </section>
     </>
