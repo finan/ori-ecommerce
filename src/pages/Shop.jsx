@@ -37,6 +37,9 @@ function Shop() {
   const rawPage = searchParams.get('page');
   const page = Number.isNaN(parseInt(rawPage)) ? 1 : parseInt(rawPage);
 
+  const hasActiveFilters =
+    selectedCategories.length > 0 || selectedColors.length > 0;
+
   useEffect(() => {
     setLoadCount(1);
   }, [rawCategory, sort]);
@@ -159,6 +162,19 @@ function Shop() {
                 <ChevronDownIcon className="h-4 w-4" />
               )}
             </button>
+            {hasActiveFilters && (
+              <button
+                onClick={() => {
+                  const newParams = new URLSearchParams();
+                  setSearchParams(newParams);
+                  setShowCategoryDropdown(false);
+                  setShowColorDropdown(false);
+                }}
+                className="btn btn-sm btn-ghost"
+              >
+                Reset all filters
+              </button>
+            )}
           </div>
 
           <select
