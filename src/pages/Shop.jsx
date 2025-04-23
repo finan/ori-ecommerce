@@ -129,6 +129,9 @@ function Shop() {
     ? paginatedProducts.length
     : Math.min(safePage * PRODUCTS_PER_PAGE, totalProducts);
 
+  const displayStartIndex = totalProducts === 0 ? 0 : startIndex;
+  const displayEndIndex = totalProducts === 0 ? 0 : endIndex;
+
   return (
     <section className="container mx-auto py-14">
       <div>
@@ -324,9 +327,11 @@ function Shop() {
         )}
 
         <p className="text-neutral mb-8 text-sm">
-          {isMobile
-            ? `Showing ${endIndex} products`
-            : `Showing ${startIndex}–${endIndex} of ${totalProducts} products`}
+          {totalProducts === 0
+            ? 'Showing 0 products'
+            : isMobile
+              ? `Showing ${endIndex} products`
+              : `Showing ${startIndex}–${endIndex} of ${totalProducts} products`}
         </p>
 
         {totalProducts === 0 && (
