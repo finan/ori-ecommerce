@@ -22,6 +22,9 @@ function Shop() {
   const rawColor = searchParams.get('color') ?? '';
   const selectedColors = rawColor ? rawColor.split(',') : [];
 
+  const getUniqueSorted = (arr) =>
+    Array.from(new Set(arr.filter(Boolean))).sort();
+
   const sort = searchParams.get('sort') ?? 'newest';
   const rawPage = searchParams.get('page');
   const page = Number.isNaN(parseInt(rawPage)) ? 1 : parseInt(rawPage);
@@ -34,27 +37,13 @@ function Shop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [page]);
 
-  const categories = [
-    'all',
-    'Kawaii',
-    'Sanrio',
-    'Nintendo',
-    'Disney',
-    'San-X',
-    'Nickelodeon',
-  ];
-  const colors = [
-    'Red',
-    'Pink',
-    'Green',
-    'Blue',
-    'Yellow',
-    'Purple',
-    'Black',
-    'White',
-    'Gray',
-    'Brown',
-  ];
+  const categories = getUniqueSorted(
+    productsData.map((p) => p.details?.category),
+  );
+
+  const colors = getUniqueSorted(
+    productsData.flatMap((p) => p.variants?.map((v) => v.color) ?? []),
+  );
 
   let filteredProducts = [...productsData];
 
