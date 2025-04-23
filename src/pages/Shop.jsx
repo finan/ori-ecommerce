@@ -129,9 +129,6 @@ function Shop() {
     ? paginatedProducts.length
     : Math.min(safePage * PRODUCTS_PER_PAGE, totalProducts);
 
-  const displayStartIndex = totalProducts === 0 ? 0 : startIndex;
-  const displayEndIndex = totalProducts === 0 ? 0 : endIndex;
-
   return (
     <section className="container mx-auto py-14">
       <div>
