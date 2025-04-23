@@ -6,6 +6,17 @@ import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/20/solid';
 import FnnListProducts from '@/fnn-components/FnnListProducts';
 import productsData from '@/data/x.json';
 
+function getUniqueSorted(arr) {
+  return Array.from(new Set(arr.filter(Boolean))).sort();
+}
+
+function isCssColorValid(color) {
+  const s = new Option().style;
+  s.color = '';
+  s.color = color;
+  return s.color !== '';
+}
+
 function Shop() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -21,9 +32,6 @@ function Shop() {
 
   const rawColor = searchParams.get('color') ?? '';
   const selectedColors = rawColor ? rawColor.split(',') : [];
-
-  const getUniqueSorted = (arr) =>
-    Array.from(new Set(arr.filter(Boolean))).sort();
 
   const sort = searchParams.get('sort') ?? 'newest';
   const rawPage = searchParams.get('page');
@@ -44,6 +52,18 @@ function Shop() {
   const colors = getUniqueSorted(
     productsData.flatMap((p) => p.variants?.map((v) => v.color) ?? []),
   );
+
+  const colorMap = productsData.reduce((map, product) => {
+    product.variants?.forEach((variant) => {
+      const name = variant.color;
+      const bg = variant.colorBg;
+
+      if (name && bg && !map[name]) {
+        map[name] = bg;
+      }
+    });
+    return map;
+  }, {});
 
   let filteredProducts = [...productsData];
 
@@ -252,8 +272,13 @@ function Shop() {
                   >
                     <span
                       className="inline-block h-4 w-4 rounded-full"
-                      style={{ backgroundColor: color.toLowerCase() }}
+                      style={{
+                        backgroundColor: isCssColorValid(color.toLowerCase())
+                          ? color.toLowerCase()
+                          : (colorMap[color] ?? '#ccc'),
+                      }}
                     />
+
                     <span>{color}</span>
                   </button>
                 );
