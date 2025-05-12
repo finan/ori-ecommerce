@@ -198,7 +198,7 @@ function Shop() {
         {showCategoryDropdown && (
           <div
             ref={dropdownRef}
-            className="bg-accent/10 mb-6 w-full rounded p-4"
+            className="bg-accent/10 mb-6 w-full rounded border-0 p-4"
           >
             <div className="mb-10 flex flex-wrap gap-2">
               {categories
@@ -225,7 +225,7 @@ function Shop() {
                     <button
                       key={cat}
                       onClick={handleToggle}
-                      className={`btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline border-white bg-white hover:border-1 hover:border-neutral-900'}`}
+                      className={`btn btn-sm ${isSelected ? 'btn-primary' : 'btn-outline border-1 border-neutral-500 bg-white'}`}
                     >
                       {cat}
                     </button>
@@ -256,7 +256,7 @@ function Shop() {
         )}
 
         {showColorDropdown && (
-          <div className="bg-accent/10 mb-6 w-full rounded p-4">
+          <div className="bg-accent/10 mb-6 w-full rounded border-0 p-4">
             <div className="mb-10 flex flex-wrap gap-2">
               {colors.map((color) => {
                 const isSelected = selectedColors.includes(color);
@@ -283,11 +283,11 @@ function Shop() {
                     className={`btn btn-sm flex items-center gap-2 ${
                       isSelected
                         ? 'btn-primary'
-                        : 'btn-outline border-white bg-white hover:border-1 hover:border-neutral-900'
+                        : 'btn-outline border-1 border-neutral-500 bg-white'
                     }`}
                   >
                     <span
-                      className="inline-block h-4 w-4 rounded-full"
+                      className="inline-block h-4 w-4 rounded-full border-1"
                       style={{
                         backgroundColor: isCssColorValid(color.toLowerCase())
                           ? color.toLowerCase()
